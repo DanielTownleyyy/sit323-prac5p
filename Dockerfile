@@ -1,19 +1,21 @@
-# Use official Node.js image
+# Created by Daniel Townley - SIT323/737 Task 5.1P
+
+# Use the official Node.js 18 image as the base
 FROM node:18
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy package.json and install dependencies
+# Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of your app
+# Copy the rest of the application code
 COPY . .
 
-# Expose the app port (adjust if your app uses a different port)
+# Expose port 3000 so the app is accessible
 EXPOSE 3000
 
-# Start the app
+# Command to run the application
 CMD ["npm", "start"]
 
